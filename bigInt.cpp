@@ -318,6 +318,9 @@ class BigInt {
   }
 
   BigInt& operator%=(const BigInt&x) {
+    if (x == BigInt(0)) {
+      throw std::runtime_error("Mod 0 is not defined!");
+    }
     int m, n;
     n = x.digit_num();
     m = digit_num() - n;
